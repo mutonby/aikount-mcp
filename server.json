@@ -1,33 +1,34 @@
 {
-  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.json",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.mutonby/aikount-mcp",
-  "description": "Contabilidad española con IA (Aikount): emite facturas, registra gastos por OCR, concilia el banco y prepara el Modelo 303 de IVA desde Claude, Cursor o ChatGPT. Para autónomos, pymes y gestorías.",
+  "description": "Contabilidad española con IA: facturas, gastos por OCR, conciliación bancaria y Modelo 303.",
+  "version": "0.1.1",
   "repository": {
     "url": "https://github.com/mutonby/aikount-mcp",
     "source": "github"
   },
-  "version": "0.1.0",
   "packages": [
     {
-      "registry_type": "pypi",
-      "registry_base_url": "https://pypi.org",
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
       "identifier": "aikount-mcp",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "transport": {
         "type": "stdio"
       },
-      "environment_variables": [
+      "environmentVariables": [
         {
           "name": "AIKOUNT_TOKEN",
-          "description": "Long-lived Aikount API key (scope *), prefixed agl_. Mint it from the web app's 'Conectar agente' button.",
-          "is_required": true,
-          "is_secret": true
+          "description": "Aikount API key (agl_...), scope *. Generada con 'Conectar agente'.",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
         },
         {
           "name": "AIKOUNT_API",
-          "description": "API base URL. Defaults to https://api.aikount.com/api/v1; override for staging/self-hosted.",
-          "is_required": false,
-          "is_secret": false
+          "description": "URL base de la API (por defecto producción).",
+          "isRequired": false,
+          "format": "string"
         }
       ]
     }

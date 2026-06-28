@@ -1,3 +1,5 @@
+<!-- mcp-name: io.github.mutonby/aikount-mcp -->
+
 # Aikount MCP — Contabilidad española con IA para Claude, Cursor y ChatGPT
 
 > **Servidor MCP de contabilidad para autónomos y pymes en España.** Lleva tu

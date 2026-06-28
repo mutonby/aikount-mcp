@@ -1,6 +1,6 @@
 [project]
 name = "aikount-mcp"
-version = "0.1.0"
+version = "0.1.1"
 description = "Servidor MCP de Aikount — contabilidad española con IA para autónomos y pymes. Emite facturas, registra gastos por OCR, concilia el banco y prepara el Modelo 303 de IVA desde Claude, Cursor o ChatGPT. Alternativa a Holded."
 readme = "README.md"
 requires-python = ">=3.10"
