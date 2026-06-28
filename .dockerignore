@@ -1,0 +1,12 @@
+.git
+.github
+dist
+build
+*.egg-info
+__pycache__
+*.pyc
+.venv
+venv
+tests
+mcp-publisher
+.env
