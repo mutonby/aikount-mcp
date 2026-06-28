@@ -1,0 +1,56 @@
+[project]
+name = "aikount-mcp"
+version = "0.1.0"
+description = "MCP server for Aikount — agent-first Spanish accounting SaaS. Issue invoices, ingest expense PDFs, reconcile bank movements and prepare Spanish tax models (Modelo 303) from any MCP client."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Aikount", email = "info@aikount.com" }]
+maintainers = [{ name = "Aikount", email = "info@aikount.com" }]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Financial and Insurance Industry",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Office/Business :: Financial :: Accounting",
+  "Natural Language :: Spanish",
+  "Operating System :: OS Independent",
+]
+keywords = [
+  "mcp",
+  "model-context-protocol",
+  "accounting",
+  "contabilidad",
+  "spain",
+  "invoicing",
+  "aikount",
+  "modelo-303",
+  "iva",
+]
+dependencies = [
+  "mcp>=1.2.0",
+  "httpx>=0.27",
+]
+
+[project.urls]
+Homepage = "https://aikount.com"
+Documentation = "https://api.aikount.com/docs"
+"OpenAPI spec" = "https://api.aikount.com/openapi.json"
+
+[project.scripts]
+aikount-mcp = "aikount_mcp.server:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.23"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["aikount_mcp"]

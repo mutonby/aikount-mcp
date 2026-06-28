@@ -1,0 +1,35 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.json",
+  "name": "io.github.mutonby/aikount-mcp",
+  "description": "Agent-first Spanish accounting (Aikount): issue invoices, ingest expense PDFs, reconcile bank movements and prepare Modelo 303 over the public REST API.",
+  "repository": {
+    "url": "https://github.com/mutonby/aikount-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registry_type": "pypi",
+      "registry_base_url": "https://pypi.org",
+      "identifier": "aikount-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environment_variables": [
+        {
+          "name": "AIKOUNT_TOKEN",
+          "description": "Long-lived Aikount API key (scope *), prefixed agl_. Mint it from the web app's 'Conectar agente' button.",
+          "is_required": true,
+          "is_secret": true
+        },
+        {
+          "name": "AIKOUNT_API",
+          "description": "API base URL. Defaults to https://api.aikount.com/api/v1; override for staging/self-hosted.",
+          "is_required": false,
+          "is_secret": false
+        }
+      ]
+    }
+  ]
+}
