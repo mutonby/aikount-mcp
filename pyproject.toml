@@ -1,7 +1,7 @@
 [project]
 name = "aikount-mcp"
 version = "0.1.0"
-description = "MCP server for Aikount — agent-first Spanish accounting SaaS. Issue invoices, ingest expense PDFs, reconcile bank movements and prepare Spanish tax models (Modelo 303) from any MCP client."
+description = "Servidor MCP de Aikount — contabilidad española con IA para autónomos y pymes. Emite facturas, registra gastos por OCR, concilia el banco y prepara el Modelo 303 de IVA desde Claude, Cursor o ChatGPT. Alternativa a Holded."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
@@ -26,11 +26,25 @@ keywords = [
   "model-context-protocol",
   "accounting",
   "contabilidad",
+  "contabilidad-con-ia",
   "spain",
+  "españa",
   "invoicing",
+  "facturacion",
+  "factura-electronica",
   "aikount",
   "modelo-303",
   "iva",
+  "autonomos",
+  "pymes",
+  "gestoria",
+  "hacienda",
+  "conciliacion-bancaria",
+  "agente-ia",
+  "holded-alternative",
+  "claude",
+  "cursor",
+  "chatgpt",
 ]
 dependencies = [
   "mcp>=1.2.0",

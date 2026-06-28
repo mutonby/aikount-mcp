@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.json",
   "name": "io.github.mutonby/aikount-mcp",
-  "description": "Agent-first Spanish accounting (Aikount): issue invoices, ingest expense PDFs, reconcile bank movements and prepare Modelo 303 over the public REST API.",
+  "description": "Contabilidad española con IA (Aikount): emite facturas, registra gastos por OCR, concilia el banco y prepara el Modelo 303 de IVA desde Claude, Cursor o ChatGPT. Para autónomos, pymes y gestorías.",
   "repository": {
     "url": "https://github.com/mutonby/aikount-mcp",
     "source": "github"
