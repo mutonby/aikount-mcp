@@ -1,0 +1,31 @@
+# Smithery configuration — https://smithery.ai/docs/build/project-config/smithery.yaml
+# Local stdio server: Smithery runs `uvx aikount-mcp` on the user's machine and
+# injects the configured environment variables.
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - aikountToken
+    properties:
+      aikountToken:
+        type: string
+        title: Aikount API token
+        description: >-
+          Your Aikount API key (scope *, prefixed agl_). Generate it in the
+          Aikount web app with the "Conectar agente" button.
+      aikountApi:
+        type: string
+        title: API base URL
+        description: >-
+          Optional. Defaults to https://api.aikount.com/api/v1. Override for a
+          staging or self-hosted backend.
+  commandFunction: |-
+    (config) => ({
+      command: 'uvx',
+      args: ['aikount-mcp'],
+      env: Object.assign(
+        { AIKOUNT_TOKEN: config.aikountToken },
+        config.aikountApi ? { AIKOUNT_API: config.aikountApi } : {}
+      )
+    })
