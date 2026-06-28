@@ -52,6 +52,20 @@ Necesitas una **API key** de Aikount (scope `*`, con prefijo `agl_`). La generas
 con el botón **«Conectar agente»** dentro de la app web de Aikount — te muestra
 las líneas `export` exactas.
 
+### Opción A — Hosted, sin instalar nada (MCP remoto)
+
+Conecta tu cliente al endpoint hosted con tu token en la cabecera:
+
+```
+URL:    https://api.aikount.com/mcp        (streamable-HTTP)
+Header: Authorization: Bearer agl_tu_token
+```
+
+Es multi-tenant: cada petición se autentica con su propio token. Ideal para
+clientes que soportan MCP remoto. Las mismas herramientas que la versión local.
+
+### Opción B — Local (este paquete)
+
 ```bash
 export AIKOUNT_TOKEN="agl_xxxxxxxxxxxxxxxxxxxxxxxx"
 # opcional, por defecto producción:
