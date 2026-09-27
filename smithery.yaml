@@ -23,7 +23,7 @@ startCommand:
   commandFunction: |-
     (config) => ({
       command: 'uvx',
-      args: ['aikount-mcp'],
+      args: ['aikount-mcp@latest'],
       env: Object.assign(
         { AIKOUNT_TOKEN: config.aikountToken },
         config.aikountApi ? { AIKOUNT_API: config.aikountApi } : {}

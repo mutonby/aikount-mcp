@@ -75,7 +75,7 @@ export AIKOUNT_TOKEN="agl_xxxxxxxxxxxxxxxxxxxxxxxx"
 Ejecútalo con [uv](https://docs.astral.sh/uv/) (sin instalar nada):
 
 ```bash
-uvx aikount-mcp
+uvx aikount-mcp@latest
 ```
 
 O con pip/pipx:
@@ -95,7 +95,7 @@ Claude Code):
   "mcpServers": {
     "aikount": {
       "command": "uvx",
-      "args": ["aikount-mcp"],
+      "args": ["aikount-mcp@latest"],
       "env": { "AIKOUNT_TOKEN": "agl_xxxxxxxxxxxxxxxxxxxxxxxx" }
     }
   }
@@ -142,7 +142,7 @@ Claude, Cursor o ChatGPT con tu contabilidad en Aikount, para que la IA pueda
 (Modelo 303) usando el Plan General Contable español.
 
 ### ¿Cómo conecto Claude (o Cursor/ChatGPT) con mi contabilidad?
-Instala el servidor con `uvx aikount-mcp`, genera tu API key en Aikount con
+Instala el servidor con `uvx aikount-mcp@latest`, genera tu API key en Aikount con
 «Conectar agente» y añade el bloque `mcpServers` a la configuración de tu cliente
 MCP. En segundos tu agente puede leer y escribir en tus libros.
 

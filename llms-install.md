@@ -26,7 +26,7 @@ Claude Desktop's `claude_desktop_config.json`, or `.cursor/mcp.json`). Replace
   "mcpServers": {
     "aikount": {
       "command": "uvx",
-      "args": ["aikount-mcp"],
+      "args": ["aikount-mcp@latest"],
       "env": {
         "AIKOUNT_TOKEN": "agl_your_token"
       }
