@@ -1,7 +1,8 @@
 name: Publish to PyPI
 
 # Push a tag vX.Y.Z (matching `version` in pyproject.toml) to publish.
-# Needs the repo secret PYPI_API_TOKEN (a PyPI API token scoped to aikount-mcp).
+# Trusted Publishing (OIDC): PyPI trusts this workflow (mutonby/aikount-mcp,
+# publish.yml, environment "pypi"), so no API token is stored anywhere.
 on:
   push:
     tags:
@@ -12,6 +13,9 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     environment: pypi
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -32,5 +36,3 @@ jobs:
           python -m build
       - name: Publish
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
