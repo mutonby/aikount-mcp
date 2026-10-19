@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.mutonby/aikount-mcp",
-  "description": "Contabilidad española con IA: facturas, gastos por OCR, conciliación bancaria y Modelo 303.",
-  "version": "0.1.2",
+  "description": "Contabilidad española con IA: facturas, gastos por OCR, conciliación bancaria e impuestos AEAT.",
+  "version": "0.2.0",
   "repository": {
     "url": "https://github.com/mutonby/aikount-mcp",
     "source": "github"
@@ -31,6 +31,13 @@
           "format": "string"
         }
       ]
+    }
+  ],
+  "websiteUrl": "https://aikount.com/mcp-contabilidad",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.aikount.com/mcp"
     }
   ]
 }
