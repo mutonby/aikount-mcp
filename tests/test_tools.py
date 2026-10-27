@@ -151,3 +151,21 @@ def test_error_returned_as_data(monkeypatch):
 def test_no_create_purchase_tool():
     """Purchases must go through the deduped ingest path, never a raw create."""
     assert not hasattr(server, "create_purchase")
+
+
+@pytest.mark.parametrize(
+    "path", ["/purchases", "purchases", "/purchases/", "//purchases", "/x/../purchases", "/Purchases"]
+)
+def test_api_request_create_purchase_forces_strict_dedup(record, path):
+    server.api_request("POST", path, params={"force": "true", "strict_dedup": "false"}, body={})
+    c = last(record)
+    assert c["params"].get("strict_dedup") == "true"
+    assert "force" not in c["params"]
+
+
+def test_api_request_other_posts_untouched(record):
+    server.api_request("POST", "/purchases/abc/issue", params={"force": "true"})
+    c = last(record)
+    assert c["params"] == {"force": "true"}
+    server.api_request("POST", "/invoices", body={})
+    assert "strict_dedup" not in last(record)["params"]

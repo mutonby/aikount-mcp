@@ -468,6 +468,17 @@ def modelo_303_csv(year: int, quarter: int) -> str:
 # ===========================================================================
 # Escape hatch
 # ===========================================================================
+def _is_purchase_create(path: str) -> bool:
+    """True when ``path`` (any spelling: trailing slash, '//', '.', '..',
+    query string) resolves to the collection ``/purchases``."""
+    import posixpath
+
+    bare = path.split("?", 1)[0].split("#", 1)[0]
+    norm = posixpath.normpath("/" + bare.lstrip("/"))
+    return norm.rstrip("/").lower() == "/purchases"
+
+
+
 @tool
 def api_request(
     method: str,
@@ -495,7 +506,14 @@ def api_request(
     if method == "GET":
         return c.get(path, **(params or {}))
     if method == "POST":
-        return c.post(path, json=body, **(params or {}))
+        params = dict(params or {})
+        if _is_purchase_create(path):
+            # Creating a purchase through the escape hatch gets the same
+            # server-side duplicate check as the ingest path: strict_dedup
+            # always on (409 on a duplicate), never a forced insert.
+            params["strict_dedup"] = "true"
+            params.pop("force", None)
+        return c.post(path, json=body, **params)
     if method == "PATCH":
         return c.patch(path, json=body)
     if method == "DELETE":
