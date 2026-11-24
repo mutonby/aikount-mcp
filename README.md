@@ -10,6 +10,7 @@
 [![CI](https://github.com/mutonby/aikount-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/mutonby/aikount-mcp/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/aikount-mcp.svg)](https://pypi.org/project/aikount-mcp/)
 [![Licencia: MIT](https://img.shields.io/badge/licencia-MIT-blue.svg)](LICENSE)
+[![mutonby/aikount-mcp MCP server](https://glama.ai/mcp/servers/mutonby/aikount-mcp/badges/score.svg)](https://glama.ai/mcp/servers/mutonby/aikount-mcp)
 
 Aikount es un **SaaS de contabilidad agent-first**: una alternativa a Holded
 pensada para que sea una **IA quien lleve la contabilidad**. Este repositorio es
